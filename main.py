@@ -52,7 +52,7 @@ def lyr(update, context, coverpy=coverpy.CoverPy()):
         print("Could not execute GET request")
     update.message.reply_photo(al_link, 'Enjoy🎸')
     # getting lyrics
-    genius = Genius('WTsAjHSa9H9-TDPXqSIQWFt6-LiXI1ApdpD8Gv1tu7l_WJZW6J2DJcuVgOcaCRDQ')
+    genius = Genius('genius token')
     artist = genius.search_artist(full_title1[0], max_songs=0, sort="title")
     song = artist.song(full_title1[1])
     lyr1 = song.lyrics
@@ -72,7 +72,7 @@ def lyr(update, context, coverpy=coverpy.CoverPy()):
         update.message.reply_text(lyr1)
 
 
-updater = Updater(token='5389478009:AAHkq0de6wY1kSi3QxQaY6wUqkB_qne2Rko', use_context=True)
+updater = Updater(token='token', use_context=True)
 updater.dispatcher.add_handler(CommandHandler('start', start))
 
 lyrs = MessageHandler(Filters.text, lyr)
